@@ -20,6 +20,7 @@ services:
     networks:
       net:
         ipv4_address: 192.168.102.20
+    restart: always
   nexus-node:
     user: root
     build:
@@ -32,6 +33,9 @@ services:
     #   - "8081:8081"
     #   - "8082:8082"
     #   - "5443:5443"
+    depends_on:
+      - nginx
+    restart: always
     networks:
       net:
         ipv4_address: 192.168.102.10
