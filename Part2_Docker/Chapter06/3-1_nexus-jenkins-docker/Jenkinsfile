@@ -34,13 +34,13 @@ pipeline {
                 """
             }
         }
-        stage('Scan Security CVE at Clair Scanner') {
+        stage('Scan Security CVE at trivy') {
             steps {
                 script {
                     try {
                         sh """
                             docker pull ${nexusUrl}/${repository}:${tagName}
-                            trivy image --clear-cache -t json -o /var/jenkins_home/trivy_report.json ${nexusUrl}/${repository}:${tagName}
+                            trivy image --clear-cache --format json -o /var/jenkins_home/trivy_report.json ${nexusUrl}/${repository}:${tagName}
                         """
                     } catch (err) {
                         echo err.getMessage()
