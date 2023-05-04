@@ -40,7 +40,7 @@ pipeline {
                     try {
                         sh """
                             docker pull ${nexusUrl}/${repository}:${tagName}
-                            trivy image --format template --template "@contrib/html.tpl" -o /var/jenkins_home/trivy_report.html ${nexusUrl}/${repository}:${tagName}
+                            trivy image --clear-cache -t json -o /var/jenkins_home/trivy_report.json ${nexusUrl}/${repository}:${tagName}
                         """
                     } catch (err) {
                         echo err.getMessage()
