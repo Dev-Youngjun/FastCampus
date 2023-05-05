@@ -1,9 +1,14 @@
 pluginManagement {
-  repositories {
-    maven {
-        url "https://nexus.jun-dev.me/repository/nexus-docker-repo/"
+    repositories {
+        maven {
+            url "https://nexus.jun-dev.me/repository/nexus-maven-proxy/"
+            credentials {
+                username = "$mavenUser"
+                password = "$mavenPassword"
+            }
+        }
+
     }
-  }
 }
 
 rootProject.name = 'test-docker-spring-boot'
