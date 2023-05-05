@@ -13,7 +13,7 @@ dependencies {
 
 repositories {
   maven {
-    url "https://nexus.jun-dev.me/repository/nexus-docker-repo/"
+    url "https://nexus.jun-dev.me/repository/nexus-maven-proxy/"
   }
 
 }
