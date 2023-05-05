@@ -1,8 +1,7 @@
 pluginManagement {
   repositories {
     maven {
-        url "http://<Nexus Private IP>:8081/repository/<nexus artifact repository Name>"
-        allowInsecureProtocol true
+        url "https://nexus.jun-dev.me/repository/nexus-docker-repo/"
     }
   }
 }

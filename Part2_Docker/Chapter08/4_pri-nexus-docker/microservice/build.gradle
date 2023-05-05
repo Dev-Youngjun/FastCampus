@@ -13,8 +13,7 @@ dependencies {
 
 repositories {
   maven {
-    url "http://<Nexus Private IP>:8081/repository/<nexus artifact repository Name>"
-    allowInsecureProtocol true
+    url "https://nexus.jun-dev.me/repository/nexus-docker-repo/"
   }
 
 }
@@ -35,7 +34,7 @@ tasks.withType(JavaCompile) {
 
 jib {
   from {
-    image = "<Nexus Private IP>:5443/<Nexus Repository Name>:<Image Tag Name>"
+    image = "https://nexus.jun-dev.me:5555/openjdk:18.0.2"
   }
   container {
     entrypoint = ['java', '-Dspring.profiles.active=test', '-jar', 'test-docker-spring-boot-0.0.1-SNAPSHOT.jar']
